@@ -5,6 +5,8 @@ Kino/Streak
 
 ![screenshot](http://i.imgur.com/OfBdhkdl.png)
 
+![gif](http://i.imgur.com/BEb05iy.gif)
+
 System requirements
 -------------------
 
