@@ -1,3 +1,6 @@
+// Kino/Streak - Anamorphic lens flare effect for Unity
+// https://github.com/keijiro/KinoStreak
+
 #include "UnityCG.cginc"
 
 sampler2D _MainTex;
@@ -7,6 +10,7 @@ sampler2D _HighTex;
 float4 _HighTex_TexelSize;
 
 float _Threshold;
+float _Stretch;
 float _Intensity;
 half3 _Color;
 
@@ -54,45 +58,23 @@ half4 frag_down(v2f_img i) : SV_Target
     return half4(c, 1);
 }
 
-#if 1
-
+// Upsampler
 half4 frag_up(v2f_img i) : SV_Target
 {
     half3 c0 = tex2D(_MainTex, i.uv) / 4;
     half3 c1 = tex2D(_MainTex, i.uv) / 2;
     half3 c2 = tex2D(_MainTex, i.uv) / 4;
     half3 c3 = tex2D(_HighTex, i.uv);
-    return half4(c0 + c1 + c2 + c3, 1);
+    return half4(lerp(c3, c0 + c1 + c2, _Stretch), 1);
 }
 
+// Final composition
 half4 frag_composite(v2f_img i) : SV_Target
 {
     half3 c0 = tex2D(_MainTex, i.uv) / 4;
     half3 c1 = tex2D(_MainTex, i.uv) / 2;
     half3 c2 = tex2D(_MainTex, i.uv) / 4;
     half3 c3 = tex2D(_HighTex, i.uv);
-    return half4((c0 + c1 + c2) * _Color *_Intensity  + c3, 1);
+    half3 cf = (c0 + c1 + c2) * _Color * _Intensity * 5;
+    return half4(cf + c3, 1);
 }
-
-#else
-
-half4 frag_up(v2f_img i) : SV_Target
-{
-    half3 c0 = tex2D(_MainTex, i.uv) / 8;
-    half3 c1 = tex2D(_MainTex, i.uv) / 4;
-    half3 c2 = tex2D(_MainTex, i.uv) / 8;
-    half3 c3 = tex2D(_HighTex, i.uv) / 2;
-    return half4(c0 + c1 + c2 + c3, 1);
-}
-
-half4 frag_composite(v2f_img i) : SV_Target
-{
-    half3 c0 = tex2D(_MainTex, i.uv);
-    half3 c1 = tex2D(_MainTex, i.uv) * 2;
-    half3 c2 = tex2D(_MainTex, i.uv);
-    half3 c3 = tex2D(_HighTex, i.uv);
-
-    return half4((c0 + c1 + c2) / 4 * float3(0.04, 0.04, 0.3) * 8 + c3, 1);
-}
-
-#endif

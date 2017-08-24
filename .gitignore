@@ -3,5 +3,6 @@ Thumbs.db
 Desktop.ini
 *.swp
 
-/Library/
-/Temp/
+/Library
+/Temp
+/*.unitypackage

@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 674403032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.61, y: 0.95, z: 0}
+  m_LocalPosition: {x: -0.03, y: 0.95, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -266,7 +266,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 743112971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.87, y: 0, z: 0}
+  m_LocalPosition: {x: -1.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -344,7 +344,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1422086815}
-  m_LocalRotation: {x: 0.34002498, y: -0.6067125, z: 0.55369604, w: 0.45793405}
+  m_LocalRotation: {x: 0.340025, y: -0.6067126, z: 0.5536961, w: 0.45793405}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -426,13 +426,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1535879295}
-  m_LocalRotation: {x: 0.4087025, y: -0.651472, z: 0.62909, w: 0.113103256}
+  m_LocalRotation: {x: 0.7410034, y: -0.32966113, z: 0.10256708, w: 0.5759493}
   m_LocalPosition: {x: -1.89, y: 1.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 114.2, y: -63.5, z: 72.16}
+  m_LocalEulerAnglesHint: {x: 112.9, y: 35.82, z: 72.16}
 --- !u!1001 &1864596116
 Prefab:
   m_ObjectHideFlags: 0
@@ -526,9 +526,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70081bef98ab8dd459e38072395393ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intensity: 0.45
-  _threshold: 1.16
-  _color: {r: 0.6544118, g: 0.6544118, b: 1, a: 1}
+  _threshold: 1
+  _stretch: 0.75
+  _intensity: 0.3
+  _tint: {r: 0.55, g: 0.55, b: 1, a: 1}
   _shader: {fileID: 4800000, guid: 10949a53e15fb4a4589953320ecc54b6, type: 3}
 --- !u!81 &2128840377
 AudioListener:

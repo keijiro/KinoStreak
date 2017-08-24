@@ -1,4 +1,7 @@
-﻿Shader "Hidden/Kino/Streak"
+﻿// Kino/Streak - Anamorphic lens flare effect for Unity
+// https://github.com/keijiro/KinoStreak
+
+Shader "Hidden/Kino/Streak"
 {
     Properties
     {
@@ -10,6 +13,8 @@
     SubShader
     {
         Cull Off ZWrite Off ZTest Always
+
+        // Prefilter
         Pass
         {
             CGPROGRAM
@@ -18,6 +23,8 @@
             #include "Streak.cginc"
             ENDCG
         }
+
+        // Downsampler
         Pass
         {
             CGPROGRAM
@@ -26,6 +33,8 @@
             #include "Streak.cginc"
             ENDCG
         }
+
+        // Upsampler
         Pass
         {
             CGPROGRAM
@@ -34,6 +43,8 @@
             #include "Streak.cginc"
             ENDCG
         }
+
+        // Final composition
         Pass
         {
             CGPROGRAM
